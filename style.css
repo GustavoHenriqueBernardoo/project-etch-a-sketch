@@ -16,23 +16,17 @@ h1 {
 }
 
 .grid-container {
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   margin: 1rem;
-  overflow: hidden;
-  flex-wrap: wrap;
   padding: 0;
-  width: auto;
-  /* height: 100vh; */
-  background-color: aqua;
+  background-color: rgb(212, 212, 212);
   border: black solid 1px;
 }
 
 .grid-item {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border: 1px solid black;
-  padding: 2px;
-  margin: 2px;
 }
