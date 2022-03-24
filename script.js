@@ -23,6 +23,9 @@ function createSquare(square) {
 
 function changeColor(color) {
   color.style.backgroundColor = defaultColor
+  if (selectColor) {
+    color.style.backgroundColor = selectColor.value
+  }
 }
 
 function clearGrid() {
@@ -56,6 +59,13 @@ const chooseSizeBtn = document.createElement('button')
 chooseSizeBtn.classList.add('delete')
 chooseSizeBtn.innerText = 'Choose Size'
 buttons_container.appendChild(chooseSizeBtn)
+
+// Choose Color
+const selectColor = document.createElement('input')
+selectColor.type = 'color'
+selectColor.classList.add('color-selector')
+console.log(selectColor.value)
+buttons_container.appendChild(selectColor)
 
 
 // Event Listeners
