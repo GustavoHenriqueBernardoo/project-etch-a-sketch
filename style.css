@@ -2,6 +2,10 @@ body {
   margin: 0;
   box-sizing: border-box;
   background-color: hsl(191, 100%, 34%, 1);
+
+  /*Testing*/
+  width: 100vw;
+  overflow: hidden;
 }
 
 h1 {
@@ -23,7 +27,10 @@ h1 {
   margin: 1rem;
   padding: 0;
   background-color: #fff;
-  border: black solid 1px;
+  border: black solid 10px;
+  /* Testing */
+  max-width: 960px;
+  overflow: hidden;
 }
 
 .grid-item {

@@ -17,41 +17,49 @@ function createSquare(square) {
     // console.log(gridItem)
     gridItem.addEventListener('mouseenter', () => changeColor(gridItem))
   }
-  eraseSquares()
-  deleteSquares()
-}
-
-function changeColor(color) {
-  color.style.backgroundColor = 'red'
 }
 
 // Getting all grid-item elements
 const gridItems = document.querySelectorAll('.grid-item')
 
 
-function eraseSquares() {
-  const cleanBtn = document.createElement('button')
-  cleanBtn.classList.add('erase')
-  cleanBtn.innerText = 'Erase'
-  cleanBtn.addEventListener('click', () => {
-    gridItems.forEach(grid => {
-      grid.style.backgroundColor = '#fff'
-    })
-  })
-  buttons_container.appendChild(cleanBtn)
+
+function changeColor(color) {
+  color.style.backgroundColor = 'red'
 }
-function deleteSquares() {
-  const deleteBtn = document.createElement('button')
-  deleteBtn.classList.add('delete')
-  deleteBtn.innerText = 'Delete'
-  deleteBtn.addEventListener('click', () => {
-    gridItems.forEach(grid => {
-      grid.remove()
-      // grid_container.remove()
-    })
-  })
-  buttons_container.appendChild(deleteBtn)
+
+function clearGrid() {
+  gridItems.forEach(grid => grid.style.backgroundColor = '#fff')
+}
+
+function changeGrid() {
+  gridItems.forEach(grid => grid.remove())
+  let newSquareNumber = +(window.prompt('Enter a number'))
+  if (newSquareNumber === 0) {
+    newSquareNumber = +(window.prompt(`Sorry! ${newSquareNumber} is not allowed. Please Enter a number from 1 to 100`))
+  } else if (newSquareNumber > 100) {
+    newSquareNumber = +(window.prompt(`Sorry! ${newSquareNumber} is not allowed. Please Enter a number from 1 to 100`))
+  }
+  createSquare(newSquareNumber)
 }
 
 
-console.log(square)
+// New Elements //
+
+// Erase Button
+const cleanBtn = document.createElement('button')
+cleanBtn.classList.add('erase')
+cleanBtn.innerText = 'Erase'
+buttons_container.appendChild(cleanBtn)
+
+// Choose Size Button
+const chooseSizeBtn = document.createElement('button')
+chooseSizeBtn.classList.add('delete')
+chooseSizeBtn.innerText = 'Choose Size'
+buttons_container.appendChild(chooseSizeBtn)
+
+
+// Event Listeners
+cleanBtn.addEventListener('click', clearGrid)
+chooseSizeBtn.addEventListener('click', changeGrid)
+
