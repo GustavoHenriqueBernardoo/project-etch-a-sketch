@@ -2,8 +2,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: hsl(191, 100%, 34%, 1);
-
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(0, 212, 255, 1) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
   /*Testing*/
   width: 100vw;
   overflow: hidden;
@@ -11,7 +16,7 @@ body {
 
 h1 {
   text-align: center;
-  color: red;
+  color: black;
 }
 
 .container {
@@ -41,8 +46,7 @@ h1 {
   gap: 20px;
 }
 
-.erase,
-.delete,
+button,
 .color-selector {
   font-size: 1rem;
   padding: 20px 40px;

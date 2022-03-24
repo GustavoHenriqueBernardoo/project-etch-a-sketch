@@ -1,9 +1,13 @@
 const container = document.getElementById('container')
 const grid_container = document.getElementById('grid-container')
 const buttons_container = document.getElementById('buttons-container')
+const titleSpans = document.querySelectorAll('span')
 
 let square = 30
-let defaultColor = 'black'
+let defaultColor = getRandomColor()
+
+// Add random color for each span in the title
+titleSpans.forEach(span => span.style.color = getRandomColor())
 
 createSquare(square)
 
@@ -26,6 +30,16 @@ function changeColor(color) {
   if (selectColor) {
     color.style.backgroundColor = selectColor.value
   }
+}
+
+function getRandomColor() {
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  return `#${randomColor}`
+}
+
+function setToRandomColor() {
+  // const gridItems = document.querySelectorAll('.grid-item')
+  // gridItems.forEach(grid => grid.style.backgroundColor = getRandomColor())
 }
 
 function clearGrid() {
@@ -64,11 +78,25 @@ buttons_container.appendChild(chooseSizeBtn)
 const selectColor = document.createElement('input')
 selectColor.type = 'color'
 selectColor.classList.add('color-selector')
-console.log(selectColor.value)
 buttons_container.appendChild(selectColor)
+
+// Special color button
+const specialButton = document.createElement('button')
+specialButton.classList.add('special')
+specialButton.innerHTML = `
+<span style="color:${getRandomColor()}">S</span>
+<span style="color:${getRandomColor()}">p</span>
+<span style="color:${getRandomColor()}">e</span>
+<span style="color:${getRandomColor()}">c</span>
+<span style="color:${getRandomColor()}">i</span>
+<span style="color:${getRandomColor()}">a</span>
+<span style="color:${getRandomColor()}">l</span>
+`
+buttons_container.insertAdjacentElement("afterbegin", specialButton)
 
 
 // Event Listeners
 cleanBtn.addEventListener('click', clearGrid)
 chooseSizeBtn.addEventListener('click', changeGrid)
+specialButton.addEventListener('click', setToRandomColor)
 
