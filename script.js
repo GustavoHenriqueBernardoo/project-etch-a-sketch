@@ -2,7 +2,8 @@ const container = document.getElementById('container')
 const grid_container = document.getElementById('grid-container')
 const buttons_container = document.getElementById('buttons-container')
 
-let square = 16
+let square = 30
+let defaultColor = 'black'
 
 createSquare(square)
 
@@ -11,36 +12,34 @@ function createSquare(square) {
   for (let i = 0; i < totalSquare; i++) {
     const gridItem = document.createElement('div')
     gridItem.classList.add('grid-item')
-    grid_container.style.gridTemplateRows = `repeat(${square}, 1fr)`
-    grid_container.style.gridTemplateColumns = `repeat(${square}, 1fr)`
+    grid_container.style.gridTemplateRows = `repeat(${square}, auto)`
+    grid_container.style.gridTemplateColumns = `repeat(${square}, auto)`
     grid_container.insertAdjacentElement("beforeend", gridItem)
     // console.log(gridItem)
     gridItem.addEventListener('mouseenter', () => changeColor(gridItem))
   }
 }
 
-// Getting all grid-item elements
-const gridItems = document.querySelectorAll('.grid-item')
-
-
 
 function changeColor(color) {
-  color.style.backgroundColor = 'red'
+  color.style.backgroundColor = defaultColor
 }
 
 function clearGrid() {
+  const gridItems = document.querySelectorAll('.grid-item')
   gridItems.forEach(grid => grid.style.backgroundColor = '#fff')
 }
 
 function changeGrid() {
-  gridItems.forEach(grid => grid.remove())
-  let newSquareNumber = +(window.prompt('Enter a number'))
-  if (newSquareNumber === 0) {
-    newSquareNumber = +(window.prompt(`Sorry! ${newSquareNumber} is not allowed. Please Enter a number from 1 to 100`))
-  } else if (newSquareNumber > 100) {
-    newSquareNumber = +(window.prompt(`Sorry! ${newSquareNumber} is not allowed. Please Enter a number from 1 to 100`))
+  let newSquareNumber = +(window.prompt('Please Enter a number from 1 to 100'))
+  if (newSquareNumber === 0 || newSquareNumber > 100) {
+    window.alert(`Sorry! ${newSquareNumber} is not allowed. Please Enter a number from 1 to 100`)
+  } else if (newSquareNumber > 0 && newSquareNumber <= 100) {
+    const gridItems = document.querySelectorAll('.grid-item')
+    gridItems.forEach(grid => grid.remove())
+    createSquare(newSquareNumber)
+
   }
-  createSquare(newSquareNumber)
 }
 
 

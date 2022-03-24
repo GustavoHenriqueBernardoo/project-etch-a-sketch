@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   background-color: hsl(191, 100%, 34%, 1);
 
@@ -22,21 +23,15 @@ h1 {
 
 .grid-container {
   display: grid;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  padding: 0;
   background-color: #fff;
   border: black solid 10px;
   /* Testing */
-  max-width: 960px;
-  overflow: hidden;
+  width: 500px;
+  height: 500px;
 }
 
 .grid-item {
-  width: 30px;
-  height: 30px;
-  border: 1px solid black;
+  border: 0.1em solid rgba(0, 0, 0, 0.082);
 }
 
 /* Buttons */
@@ -52,7 +47,4 @@ h1 {
   padding: 20px 40px;
   border-radius: 20px;
   margin-top: 1rem;
-}
-
-.delete {
 }
