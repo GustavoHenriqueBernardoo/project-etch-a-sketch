@@ -1,6 +1,7 @@
 body {
   margin: 0;
   box-sizing: border-box;
+  background-color: hsl(191, 100%, 34%, 1);
 }
 
 h1 {
@@ -21,7 +22,7 @@ h1 {
   align-items: center;
   margin: 1rem;
   padding: 0;
-  background-color: rgb(212, 212, 212);
+  background-color: #fff;
   border: black solid 1px;
 }
 
@@ -29,4 +30,22 @@ h1 {
   width: 30px;
   height: 30px;
   border: 1px solid black;
+}
+
+/* Buttons */
+
+.buttons-container {
+  display: flex;
+  gap: 20px;
+}
+
+.erase,
+.delete {
+  font-size: 1rem;
+  padding: 20px 40px;
+  border-radius: 20px;
+  margin-top: 1rem;
+}
+
+.delete {
 }
