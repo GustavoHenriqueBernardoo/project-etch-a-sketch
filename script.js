@@ -24,14 +24,14 @@ function createSquare(square) {
   }
 }
 
-
+// Colors functions
 function changeColor(item) {
   // item.style.backgroundColor = defaultColor
   // if (selectColor) {
   //   item.style.backgroundColor = selectColor.value
   // }
   item.style.backgroundColor = defaultColor
-  specialButton.classList.remove('active')
+  // specialButton.classList.remove('active')
   item.style.backgroundColor = selectColor.value
 }
 
@@ -40,19 +40,19 @@ function getRandomColor() {
   return `#${randomColor}`
 }
 
-function setToRandomColor() {
-  const gridItems = document.querySelectorAll('.grid-item')
+// function setToRandomColor() {
+//   const gridItems = document.querySelectorAll('.grid-item')
 
-  specialButton.classList.add('active')
-  if (specialButton.classList.contains('active')) {
-    console.log('true')
-    gridItems.forEach(grid => grid.addEventListener('mouseenter', () => {
-      grid.style.backgroundColor = getRandomColor()
-    }))
+//   specialButton.classList.add('active')
+//   if (specialButton.classList.contains('active')) {
+//     console.log('true')
+//     gridItems.forEach(grid => grid.addEventListener('mouseenter', () => {
+//       grid.style.backgroundColor = getRandomColor()
+//     }))
 
-  }
+//   }
 
-}
+// }
 
 // Erase function, to clear all the grid
 function clearGrid() {
@@ -90,6 +90,7 @@ chooseSizeBtn.innerText = 'Choose Size'
 buttons_container.appendChild(chooseSizeBtn)
 
 // Choose Color
+const selectorBtn = document.createElement('button')
 const selectColor = document.createElement('input')
 selectColor.type = 'color'
 selectColor.classList.add('color-selector')
@@ -107,7 +108,7 @@ specialButton.innerHTML = `
 <span style="color:${getRandomColor()}">a</span>
 <span style="color:${getRandomColor()}">l</span>
 `
-buttons_container.insertAdjacentElement("afterbegin", specialButton)
+// buttons_container.insertAdjacentElement("afterbegin", specialButton)
 
 
 // Event Listeners

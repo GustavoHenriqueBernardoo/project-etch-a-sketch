@@ -11,7 +11,7 @@ body {
   );
   /*Testing*/
   width: 100vw;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 h1 {
