@@ -57,10 +57,11 @@ button,
 .color-selector {
   /* position: relative; */
   height: auto;
-  width: 9rem;
-  border-radius: 50%;
+  width: 7rem;
+  border-radius: 80%;
   padding: 0;
   border-top: 5rem;
   border: 0;
+  overflow: hidden;
   background-color: transparent;
 }

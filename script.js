@@ -4,7 +4,7 @@ const buttons_container = document.getElementById('buttons-container')
 const titleSpans = document.querySelectorAll('span')
 
 let square = 30
-let defaultColor = getRandomColor()
+let defaultColor = 'black'
 
 // Add random color for each span in the title
 titleSpans.forEach(span => span.style.color = getRandomColor())
@@ -25,11 +25,14 @@ function createSquare(square) {
 }
 
 
-function changeColor(color) {
-  color.style.backgroundColor = defaultColor
-  if (selectColor) {
-    color.style.backgroundColor = selectColor.value
-  }
+function changeColor(item) {
+  // item.style.backgroundColor = defaultColor
+  // if (selectColor) {
+  //   item.style.backgroundColor = selectColor.value
+  // }
+  item.style.backgroundColor = defaultColor
+  specialButton.classList.remove('active')
+  item.style.backgroundColor = selectColor.value
 }
 
 function getRandomColor() {
@@ -38,15 +41,27 @@ function getRandomColor() {
 }
 
 function setToRandomColor() {
-  // const gridItems = document.querySelectorAll('.grid-item')
-  // gridItems.forEach(grid => grid.style.backgroundColor = getRandomColor())
+  const gridItems = document.querySelectorAll('.grid-item')
+
+  specialButton.classList.add('active')
+  if (specialButton.classList.contains('active')) {
+    console.log('true')
+    gridItems.forEach(grid => grid.addEventListener('mouseenter', () => {
+      grid.style.backgroundColor = getRandomColor()
+    }))
+
+  }
+
 }
 
+// Erase function, to clear all the grid
 function clearGrid() {
+  specialButton.classList.remove('active')
   const gridItems = document.querySelectorAll('.grid-item')
   gridItems.forEach(grid => grid.style.backgroundColor = '#fff')
 }
 
+// A function to choose the size of the grid
 function changeGrid() {
   let newSquareNumber = +(window.prompt('Please Enter a number from 1 to 100'))
   if (newSquareNumber === 0 || newSquareNumber > 100) {
